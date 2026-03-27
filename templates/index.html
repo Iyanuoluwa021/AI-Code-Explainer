@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Code Explainer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+    <h1>🧠 AI Code Explainer</h1>
+    <p>Paste your code and get an instant AI explanation.</p>
+
+    <textarea id="codeInput" placeholder="Paste your code here..."></textarea>
+
+    <div class="controls">
+        <select id="mode">
+            <option value="Beginner">Beginner</option>
+            <option value="Advanced">Advanced</option>
+        </select>
+        <button onclick="explainCode()">Explain Code</button>
+    </div>
+
+    <div id="loader" class="loader">Analyzing code...</div>
+
+    <div class="result">
+        <h2>Analysis (<span id="selectedMode">Beginner</span>)</h2>
+        <pre id="output"></pre>
+        <button onclick="copyExplanation()">Copy Explanation</button>
+    </div>
+
+    <!-- Code Preview -->
+    <div class="code-preview">
+        <h2>Code Preview</h2>
+        <pre><code id="preview" class="language-python"></code></pre>
+        <button onclick="copyCode()">Copy Code</button>
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
